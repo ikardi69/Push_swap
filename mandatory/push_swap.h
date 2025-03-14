@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:49 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/13 16:28:04 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/14 15:34:43 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,11 @@ typedef struct s_big_box
 
 
 
-int     ft_atoi(const char *str);
-void    error_throw(void);
-int     arguments_checker(char **str);
-t_big_box  	*box_struct(t_big_box *head);
+int 		ft_atoi(const char *str);
+void		error_throw(void);
+int			arguments_checker(char **str);
+t_big_box	*box_struct(t_big_box *head);
+int			ft_isdigit(int c);
+int			ft_skip_space(char *str, int i);
 
 #endif
