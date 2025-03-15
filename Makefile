@@ -28,7 +28,7 @@ $(NAME): $(OBJ) $(MANDATORY_HEADER)
 #bonus: $(BONUS_NAME) ...
 
 %.o: %.c $(MANDATORY_HEADER)
-	$(CC) $(FLAGS) -c $< -o $<@
+	$(CC) $(FLAGS) -c $< -o $@
 
 #%_bonus.o: %_bonus.c ....
 

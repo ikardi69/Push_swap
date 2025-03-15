@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:48:10 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/14 15:35:07 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/15 15:56:15 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,10 @@ t_big_box  	*box_struct(t_big_box *head)
 	return (head);
 }
 
-int	ft_skip_space(char *str, int i)
+void	ft_skip_space(const char *str, size_t *i)
 {
-	while (str[i] == ' ' && str[i])
-		i++;
-	return (i);
+	while (str[*i] == ' ' && str[*i])
+		(*i)++;
 }
 
 int	ft_isdigit(int c)

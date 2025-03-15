@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:19:49 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/14 15:39:23 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/15 16:21:40 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ static int	ft_checklong(size_t counter, long long nbr, int sign)
 	return (1);
 }
 
-static int	ft_space_sign(char *str, size_t *i, int *sign)
+static void	ft_space_sign(const char *str, size_t *i, int *sign)
 {
-	while (str[*i] == ' ')
-		*i++;
-	if (ft_sign(str, i, sign))
-		*i++;
-	while (str[*i] == '0')
-		*i++;
+	while (str[*i] == ' ' && str[*i])
+		(*i)++;
+	if (str[*i] && ft_sign(str, *i, sign))
+		(*i)++;
+	while (str[*i] == '0' && str[*i])
+		(*i)++;
 }
 
 int	ft_atoi(const char *str)
@@ -55,10 +55,11 @@ int	ft_atoi(const char *str)
 	i = 0;
 	nbr = 0;
 	counter = 0;
-	while (str[i] >= '0' && str[i] <= '9' || str[i] == ' ')
+	ft_space_sign(str, &i, &sign);
+	while ((str[i] >= '0' && str[i] <= '9') || str[i] == ' ')
 	{
 		if (str[i] == ' ')
-			i = ft_skip_space(str, i);
+			ft_skip_space(str, &i);
 		nbr *= 10;
 		nbr += str[i] - 48;
 		counter++;
@@ -69,18 +70,42 @@ int	ft_atoi(const char *str)
 	return ((int)nbr * sign);
 }
 
+static int	check(int c)
+{
+	if (c == ' ')
+		return (0);
+	else if (c == '-')
+		return (1);
+	else if (c == '+')
+		return (1);
+	else if (!(ft_isdigit(c)))
+		return (1);
+	else
+		return (0);
+}
+
 int arguments_checker(char **str)
 {
-	int			i;
-	t_stack_a	*a;
+	int	i;
+	int	x;
 
-	a = (t_stack_a *)if (str[i] == '-')
-	*sign = -1;
-	while (str[i])
+	x = 0;
+	while (str[++x])
 	{
-		/* code */
+		printf("%s\n", str[x]);
+		i = -1;
+		while (str[x][++i])
+		{
+			if (str[x][i] == '-' && (str[x][i - 1] != ' ' || i != 0))
+				return (0);
+			else if (str[x][i + 1] == '\0')
+			{
+				if ((check(str[x][i])))
+					return (0);
+			}
+		}
 	}
-	
+	return (1);
 }
 
 void	error_throw(void)
