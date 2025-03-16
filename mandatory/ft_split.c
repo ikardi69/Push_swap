@@ -6,11 +6,11 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 21:03:15 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/15 15:47:04 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/16 17:03:05 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 static size_t	ft_count_words(char const *s, char c)
 {
@@ -30,7 +30,7 @@ static size_t	ft_count_words(char const *s, char c)
 	return (count);
 }
 
-static char	**ft_free(char **s)
+static char	**ft_free_split(char **s)
 {
 	size_t	i;
 
@@ -64,7 +64,7 @@ static	char	**ft_alloc(char **words, char const *s, char c, size_t size)
 		{
 			words[k] = ft_substr(s, start, (end - start));
 			if (!words[k])
-				return (ft_free(words));
+				return (ft_free_split(words));
 			start = end + 1;
 			k++;
 		}

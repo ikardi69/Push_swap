@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:19:49 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/15 16:21:40 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/16 14:33:04 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,44 +68,6 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return ((int)nbr * sign);
-}
-
-static int	check(int c)
-{
-	if (c == ' ')
-		return (0);
-	else if (c == '-')
-		return (1);
-	else if (c == '+')
-		return (1);
-	else if (!(ft_isdigit(c)))
-		return (1);
-	else
-		return (0);
-}
-
-int arguments_checker(char **str)
-{
-	int	i;
-	int	x;
-
-	x = 0;
-	while (str[++x])
-	{
-		printf("%s\n", str[x]);
-		i = -1;
-		while (str[x][++i])
-		{
-			if (str[x][i] == '-' && (str[x][i - 1] != ' ' || i != 0))
-				return (0);
-			else if (str[x][i + 1] == '\0')
-			{
-				if ((check(str[x][i])))
-					return (0);
-			}
-		}
-	}
-	return (1);
 }
 
 void	error_throw(void)
