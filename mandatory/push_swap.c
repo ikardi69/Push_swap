@@ -6,11 +6,26 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:43 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/16 17:19:29 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/17 16:28:27 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	printf_list(t_big_box *box)
+{
+	int	i;
+	t_stack_a	*tmp;
+
+	i = 0;
+	tmp = box->stack_a_head;
+	while (tmp)
+	{
+		printf("content = %d rank is = %d\n", tmp->content, i);
+		i++;
+		tmp = tmp->next;
+	}
+}
 
 int main(int argc, char **argv)
 {
@@ -27,8 +42,9 @@ int main(int argc, char **argv)
 	if (!b)
 		return (perror("Error: Box struct failed\n"), 1);
 	set_stack_a(b, argv);
-	if (dup_check(b))	//dup func debuging it doesnt enter to this function at all
-		return (perror("Error\n"), 1);
+	printf_list(b);
+	if (dup_check(b))
+		return (perror("Error dyal duop\n"), 1);
 	else
 		return (printf("nice\n"), 0);
 }

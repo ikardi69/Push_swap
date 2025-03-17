@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 14:32:23 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/16 17:01:51 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/17 16:22:47 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	ft_space_check(char *str)
 	return (0);
 }
 
-void	ft_add_content(t_stack_a *head, int content)
+void	ft_add_content(t_stack_a **head, int content)
 {
 	t_stack_a *a;
 
@@ -71,7 +71,7 @@ void	ft_add_content(t_stack_a *head, int content)
 		return ;
 	a->content = content;
 	a->next = NULL;
-	ft_lstadd_back(&head, a);
+	ft_lstadd_back(head, a);
 }
 
 void	set_stack_a(t_big_box *box, char **str)
@@ -88,10 +88,13 @@ void	set_stack_a(t_big_box *box, char **str)
 			temp = ft_split(str[i], ' ');
 			if (!temp)
 				return ;
-			extract_alt(temp, box->stack_a_head);
+			extract_alt(temp, &(box->stack_a_head));
 		}
-		tmp = ft_atoi(str[i]);
-		ft_add_content(box->stack_a_head, tmp);
+		else
+		{
+			tmp = ft_atoi(str[i]);
+			ft_add_content(&(box->stack_a_head), tmp);	
+		}
 	}
 }
 
@@ -127,4 +130,5 @@ void	ft_lstadd_back(t_stack_a **lst, t_stack_a *new)
 	while (tmp && tmp->next != NULL)
 		tmp = tmp->next;
 	tmp->next = new;
+	new->next = NULL;
 }

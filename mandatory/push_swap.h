@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:49 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/16 17:07:33 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/17 16:23:37 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ void		set_stack_a(t_big_box *box, char **str);
 int			ft_space_check(char *str);
 void		ft_free(t_big_box *box);
 void		free_arr_ptr(char **str);
-void		extract_alt(char **str, t_stack_a *box_a);
+void		extract_alt(char **str, t_stack_a **box_a);
 void		ft_lstadd_back(t_stack_a **lst, t_stack_a *new);
-void		ft_add_content(t_stack_a *head, int content);
+void		ft_add_content(t_stack_a **head, int content);
 int			dup_check(t_big_box *box);
 char		*ft_strdup(const char *s);
 size_t		ft_strlen(const char *s);

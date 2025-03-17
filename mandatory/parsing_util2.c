@@ -6,13 +6,13 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 16:25:18 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/16 17:07:25 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/17 16:22:19 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    extract_alt(char **str, t_stack_a *box_a)
+void    extract_alt(char **str, t_stack_a **box_a)
 {
     int tmp;
     int i;

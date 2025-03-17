@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:19:49 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/16 14:33:04 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/17 14:39:59 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static int	ft_sign(const char *str, size_t i, int *sign)
 			*sign = -1;
 		return (1);
 	}
+	else if (str[i] >= '0' && str[i] <= '9')
+		return (0);
 	else
 		return (error_throw(), 0);
 	return (0);
