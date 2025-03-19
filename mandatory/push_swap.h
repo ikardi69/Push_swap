@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:49 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/17 16:23:37 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/19 16:20:50 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 
 typedef struct s_stack_a
 {
-	int					content;
+	long long			content;
 	int					index;
 	struct s_stack_a	*next; 
 }t_stack_a;
 
 typedef struct s_stack_b
 {
-	int					content;
+	long long			content;
 	int					index;
 	struct s_stack_b	*next; 
 }t_stack_b;
@@ -57,5 +57,12 @@ int			dup_check(t_big_box *box);
 char		*ft_strdup(const char *s);
 size_t		ft_strlen(const char *s);
 void		*ft_memcpy(void *dest, const void *src, size_t n);
+int			ft_lstsize(t_stack_a *lst);
+void		ft_lstclear_stack_a(t_stack_a **lst);
+void		ft_lstclear_stack_b(t_stack_b **lst);
+void		index_all(t_stack_a *stack_a);
+void		ranking_index(t_stack_a *stack_a);
+void		sa(t_stack_a **stack_a);
+void		ft_putstr(char *str);
 
 #endif

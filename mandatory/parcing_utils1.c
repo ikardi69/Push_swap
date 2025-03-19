@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 14:32:23 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/17 16:22:47 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/19 14:18:55 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,11 +109,6 @@ void		free_arr_ptr(char **str)
 	}
 	free(str);
 }
-
-// void		ft_free(t_big_box *box)
-// {
-	
-// }
 
 void	ft_lstadd_back(t_stack_a **lst, t_stack_a *new)
 {
