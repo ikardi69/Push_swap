@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 14:25:29 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/19 16:55:55 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/21 16:19:26 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,18 +55,19 @@ void	ranking_index(t_stack_a *stack_a)
 
 void	sort_three(t_big_box *big_box)
 {
-	int			size;
-	t_stack_a	*stack_a;
+	int	first;
+	int	second;
+	int	third;
 
-	size = ft_lstsize(&(big_box->stack_a_head));
-	stack_a = big_box->stack_a_head;
-	while (stack_a)
-	{
-		if (stack_a->index == size)
-		{
-			sa(&(big_box->stack_a_head));
-			return ;
-		}
-	}
-	
+	first = big_box->stack_a_head->index;
+	second = big_box->stack_a_head->next->index;
+	third = big_box->stack_a_head->next->next->index;
+	if (first > second && first > third)
+		ra(&big_box->stack_a_head);
+	else if (second > first && second > third)
+		rra(&big_box->stack_a_head);
+	first = big_box->stack_a_head->index;
+	second = big_box->stack_a_head->next->index;
+	if (first > second)
+		sa(&big_box->stack_a_head);
 }

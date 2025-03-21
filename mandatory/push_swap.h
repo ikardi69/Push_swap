@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:49 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/19 16:20:50 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/21 16:15:34 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,22 @@ void		ft_lstclear_stack_a(t_stack_a **lst);
 void		ft_lstclear_stack_b(t_stack_b **lst);
 void		index_all(t_stack_a *stack_a);
 void		ranking_index(t_stack_a *stack_a);
-void		sa(t_stack_a **stack_a);
 void		ft_putstr(char *str);
+/* The operations*/ // we have a problem in printing the opersation if we use an operation that contain other operations
+void		sa(t_stack_a **stack_a);
+void		sb(t_stack_b **stack_b);
+void		ss(t_stack_a **stack_a, t_stack_b **stack_b);
+void		pa(t_stack_a **stack_a, t_stack_b **stack_b);
+void		pb(t_stack_a **stack_a, t_stack_b **stack_b);
+void		ra(t_stack_a **stack_a);
+void		rb(t_stack_b **stack_b);
+void		rr(t_stack_a **stack_a, t_stack_b **stack_b);
+void		rra(t_stack_a **stack_a);
+void		rrb(t_stack_b **stack_b);
+void		rrr(t_stack_a **stack_a, t_stack_b **stack_b);
+/************************************************************/
+/*Sort Three*/
+/************************************************************/
+void		sort_three(t_big_box **big_box);
 
 #endif
