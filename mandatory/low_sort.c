@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 14:25:29 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/21 16:19:26 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/22 14:13:56 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,11 @@ void	sort_three(t_big_box *big_box)
 	second = big_box->stack_a_head->next->index;
 	third = big_box->stack_a_head->next->next->index;
 	if (first > second && first > third)
-		ra(&big_box->stack_a_head);
+		ra(&big_box->stack_a_head, 1);
 	else if (second > first && second > third)
-		rra(&big_box->stack_a_head);
+		rra(&big_box->stack_a_head, 1);
 	first = big_box->stack_a_head->index;
 	second = big_box->stack_a_head->next->index;
 	if (first > second)
-		sa(&big_box->stack_a_head);
+		sa(&big_box->stack_a_head, 1);
 }

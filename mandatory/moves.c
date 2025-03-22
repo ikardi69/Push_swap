@@ -6,13 +6,13 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:02:02 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/21 14:42:29 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/22 13:54:47 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack_a **stack_a)
+void	sa(t_stack_a **stack_a, int sign)
 {
 	t_stack_a	*first;
 	t_stack_a	*second;
@@ -24,13 +24,14 @@ void	sa(t_stack_a **stack_a)
 	first->next = second->next;
 	second->next = first;
 	*stack_a = second;
-	ft_putstr("sa\n");
+	if (sign)
+		ft_putstr("sa\n");
 }
 
-void	sb(t_stack_b **stack_b)
+void	sb(t_stack_b **stack_b, int sign)
 {
-	t_stack_a	*first;
-	t_stack_a	*second;
+	t_stack_b	*first;
+	t_stack_b	*second;
 
 	if (!*stack_b || !(*stack_b)->next)
 		return ;
@@ -39,13 +40,14 @@ void	sb(t_stack_b **stack_b)
 	first->next = second->next;
 	second->next = first;
 	*stack_b = second;
-	ft_putstr("sb\n");
+	if (sign)
+		ft_putstr("sb\n");
 }
 
 void	ss(t_stack_a **stack_a, t_stack_b **stack_b)
 {
-	sa(stack_a);
-	sb(stack_b);
+	sa(stack_a, 0);
+	sb(stack_b, 0);
 	ft_putstr("ss\n");
 }
 
@@ -57,8 +59,8 @@ void	pa(t_stack_a **stack_a, t_stack_b **stack_b)
 		return ;
 	b_first = *stack_b;
 	*stack_b = b_first->next;
-	b_first->next = *stack_a;
-	*stack_a = b_first;
+	b_first->next = (t_stack_b *)*stack_a;
+	*stack_a = (t_stack_a *)b_first;
 	ft_putstr("pa\n");
 }
 
@@ -70,7 +72,7 @@ void	pb(t_stack_a **stack_a, t_stack_b **stack_b)
 		return ;
 	a_first = *stack_a;
 	*stack_a = a_first->next;
-	a_first->next = *stack_b;
-	*stack_b = a_first;
+	a_first->next = (t_stack_a *)*stack_b;
+	*stack_b = (t_stack_b *)a_first;
 	ft_putstr("pb\n");
 }

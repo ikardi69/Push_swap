@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:49 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/21 16:15:34 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/22 16:00:20 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define LL_MAX 9223372036854775807LL
 # include <stdio.h>
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_stack_a
 {
@@ -51,33 +52,47 @@ int			ft_space_check(char *str);
 void		ft_free(t_big_box *box);
 void		free_arr_ptr(char **str);
 void		extract_alt(char **str, t_stack_a **box_a);
-void		ft_lstadd_back(t_stack_a **lst, t_stack_a *new);
+void		ft_lstadd_back_a(t_stack_a **lst, t_stack_a *new);
+void		ft_lstadd_back_b(t_stack_b **lst, t_stack_b *new);
 void		ft_add_content(t_stack_a **head, int content);
 int			dup_check(t_big_box *box);
 char		*ft_strdup(const char *s);
 size_t		ft_strlen(const char *s);
 void		*ft_memcpy(void *dest, const void *src, size_t n);
-int			ft_lstsize(t_stack_a *lst);
+
+int			ft_lstsize_a(t_stack_a *lst);
+int			ft_lstsize_b(t_stack_b *lst);
+
+void		finished(t_big_box *big_box);
+
 void		ft_lstclear_stack_a(t_stack_a **lst);
 void		ft_lstclear_stack_b(t_stack_b **lst);
 void		index_all(t_stack_a *stack_a);
 void		ranking_index(t_stack_a *stack_a);
 void		ft_putstr(char *str);
 /* The operations*/ // we have a problem in printing the opersation if we use an operation that contain other operations
-void		sa(t_stack_a **stack_a);
-void		sb(t_stack_b **stack_b);
+void		sa(t_stack_a **stack_a, int sign);
+void		sb(t_stack_b **stack_b, int sign);
 void		ss(t_stack_a **stack_a, t_stack_b **stack_b);
 void		pa(t_stack_a **stack_a, t_stack_b **stack_b);
 void		pb(t_stack_a **stack_a, t_stack_b **stack_b);
-void		ra(t_stack_a **stack_a);
-void		rb(t_stack_b **stack_b);
+void		ra(t_stack_a **stack_a, int sign);
+void		rb(t_stack_b **stack_b, int sign);
 void		rr(t_stack_a **stack_a, t_stack_b **stack_b);
-void		rra(t_stack_a **stack_a);
-void		rrb(t_stack_b **stack_b);
+void		rra(t_stack_a **stack_a, int sign);
+void		rrb(t_stack_b **stack_b, int sign);
 void		rrr(t_stack_a **stack_a, t_stack_b **stack_b);
 /************************************************************/
 /*Sort Three*/
 /************************************************************/
-void		sort_three(t_big_box **big_box);
+void		sort_three(t_big_box *big_box);
+/************************************************************/
+/*Sort four or five*/
+/************************************************************/
+void		push_two_smallest(t_stack_a **stack_a, t_stack_b **stack_b);
+void		sort_four_or_five(t_big_box *big_box);
+/************************************************************/
+/*Sorting 100 or fewer numbers*/
+/************************************************************/
 
 #endif

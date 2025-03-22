@@ -18,7 +18,9 @@ SRC = $(MANDATORY_DIR)push_swap.c \
 		$(MANDATORY_DIR)parsing_util2.c \
 		$(MANDATORY_DIR)low_sort.c \
 		$(MANDATORY_DIR)moves.c \
-		$(MANDATORY_DIR)moves_2.c
+		$(MANDATORY_DIR)moves_2.c \
+		$(MANDATORY_DIR)four_or_five.c \
+		$(MANDATORY_DIR)big_one.c
 
 OBJ = $(SRC:.c=.o)
 

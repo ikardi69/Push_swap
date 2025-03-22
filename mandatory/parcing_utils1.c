@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 14:32:23 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/19 14:18:55 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/22 13:01:17 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	ft_add_content(t_stack_a **head, int content)
 		return ;
 	a->content = content;
 	a->next = NULL;
-	ft_lstadd_back(head, a);
+	ft_lstadd_back_a(head, a);
 }
 
 void	set_stack_a(t_big_box *box, char **str)
@@ -110,9 +110,27 @@ void		free_arr_ptr(char **str)
 	free(str);
 }
 
-void	ft_lstadd_back(t_stack_a **lst, t_stack_a *new)
+void	ft_lstadd_back_a(t_stack_a **lst, t_stack_a *new)
 {
 	t_stack_a	*tmp;
+
+	if (!new || !lst)
+		return ;
+	if (*lst == NULL)
+	{
+		*lst = new;
+		return ;
+	}
+	tmp = *lst;
+	while (tmp && tmp->next != NULL)
+		tmp = tmp->next;
+	tmp->next = new;
+	new->next = NULL;
+}
+
+void	ft_lstadd_back_b(t_stack_b **lst, t_stack_b *new)
+{
+	t_stack_b	*tmp;
 
 	if (!new || !lst)
 		return ;

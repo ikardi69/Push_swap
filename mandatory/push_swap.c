@@ -6,11 +6,19 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:43 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/19 15:48:00 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/22 15:31:08 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	finished(t_big_box *big_box)
+{
+	ft_lstclear_stack_a(&(big_box->stack_a_head));
+	ft_lstclear_stack_b(&(big_box->stack_b_head));
+	free(big_box);
+	exit(0);
+}
 
 void	printf_list(t_big_box *box)
 {
@@ -36,19 +44,25 @@ int main(int argc, char **argv)
 		return (perror("Error\n"), 1);
 	if ((arguments_checker(argv)) == 0)
 		return (perror("Error\n"), 1);
-	else
-		printf("nice\n");
+	// else
+		// printf("nice\n");
 	b = box_struct(b);
 	if (!b)
 		return (perror("Error: Box struct failed\n"), 1);
 	set_stack_a(b, argv);
 	index_all(b->stack_a_head);
-	printf_list(b);
+	// printf_list(b);
 	if (dup_check(b))
-	return (perror("Error dyal duop\n"), 1);
-	else
-	printf("m9awd\n");
+		return (perror("Error dyal duop\n"), 1);
+	// else
+	// printf("m9awd\n");
 	ranking_index(b->stack_a_head);
-	printf_list(b);
-	// if (argc == 3)
+	// printf_list(b);
+	if (argc == 4)
+		sort_three(b);
+	else if (argc > 4 && argc <= 6)
+		sort_four_or_five(b);
+	// printf_list(b);
+	finished(b);
+	return (0);
 }

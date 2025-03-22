@@ -6,13 +6,13 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 14:43:31 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/21 15:22:56 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/22 13:56:42 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_stack_a **stack_a)
+void	ra(t_stack_a **stack_a, int sign)
 {
 	t_stack_a   *first;
 
@@ -21,11 +21,12 @@ void	ra(t_stack_a **stack_a)
 	first = *stack_a;
 	*stack_a = first->next;
 	first->next = NULL;
-	ft_lstadd_back(stack_a, first);
-	ft_putstr("ra\n");
+	ft_lstadd_back_a(stack_a, first);
+	if (sign)
+		ft_putstr("ra\n");
 }
 
-void	rb(t_stack_b **stack_b)
+void	rb(t_stack_b **stack_b, int sign)
 {
 	t_stack_b	*first;
 
@@ -34,8 +35,9 @@ void	rb(t_stack_b **stack_b)
 	first = *stack_b;
 	*stack_b = first->next;
 	first->next = NULL;
-	ft_lstadd_back(stack_b, first);
-	ft_putstr("rb\n");
+	ft_lstadd_back_b(stack_b, first);
+	if (sign)
+		ft_putstr("rb\n");
 }
 
 void	rr(t_stack_a **stack_a, t_stack_b **stack_b)
@@ -43,12 +45,12 @@ void	rr(t_stack_a **stack_a, t_stack_b **stack_b)
 	if (!stack_a || !*stack_a || !(*stack_a)->next ||
 		!stack_b || !*stack_b || !(*stack_b)->next)
 		return ;
-	ra(stack_a);
-	rb(stack_b);
+	ra(stack_a, 0);
+	rb(stack_b, 0);
 	ft_putstr("rr\n");
 }
 
-void	rra(t_stack_a **stack_a)
+void	rra(t_stack_a **stack_a, int sign)
 {
 	t_stack_a	*last;
 	t_stack_a	*second_last;
@@ -65,10 +67,11 @@ void	rra(t_stack_a **stack_a)
 	last->next = *stack_a;
 	second_last->next = NULL;
 	*stack_a = last;
-	ft_putstr("rra\n");
+	if (sign)
+		ft_putstr("rra\n");
 }
 
-void	rrb(t_stack_b **stack_b)
+void	rrb(t_stack_b **stack_b, int sign)
 {
 	t_stack_b	*last;
 	t_stack_b	*second_last;
@@ -85,7 +88,8 @@ void	rrb(t_stack_b **stack_b)
 	last->next = *stack_b;
 	second_last->next = NULL;
 	*stack_b = last;
-	ft_putstr("rrb\n");
+	if (sign)
+		ft_putstr("rrb\n");
 }
 
 void	rrr(t_stack_a **stack_a, t_stack_b **stack_b)
@@ -93,7 +97,7 @@ void	rrr(t_stack_a **stack_a, t_stack_b **stack_b)
 	if (!stack_a || !*stack_a || !(*stack_a)->next ||
 		!stack_b || !*stack_b || !(*stack_b)->next)
 		return ;
-	rra(stack_a);
-	rrb(stack_b);
+	rra(stack_a, 0);
+	rrb(stack_b, 0);
 	ft_putstr("rrr\n");
 }

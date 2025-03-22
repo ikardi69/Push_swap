@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 16:25:18 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/19 14:18:29 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/22 15:07:06 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,22 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
-int	ft_lstsize(t_stack_a *lst)
+int	ft_lstsize_a(t_stack_a *lst)
+{
+	int	i;
+
+	if (!lst)
+		return (0);
+	i = 0;
+	while (lst)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
+}
+
+int	ft_lstsize_b(t_stack_b *lst)
 {
 	int	i;
 
