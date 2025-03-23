@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:49 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/22 16:00:20 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/23 16:26:20 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,8 @@ void		sort_four_or_five(t_big_box *big_box);
 /************************************************************/
 /*Sorting 100 or fewer numbers*/
 /************************************************************/
+
+void		ft_big(t_stack_a **stack_a, t_stack_b **stack_b, int range);
+int			get_range(t_stack_a **stack_a);
 
 #endif

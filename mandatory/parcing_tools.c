@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:48:10 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/19 16:20:37 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/23 16:27:25 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_big_box  	*box_struct(t_big_box *head)
 {
 	head = (t_big_box *)malloc(sizeof(t_big_box));
 	if (!head)
-		return (perror("Error\n"), NULL);
+		return (perror("Error\n"), exit(1), NULL);
 	head->stack_a_head = NULL;
 	head->stack_b_head = NULL;
 	return (head);

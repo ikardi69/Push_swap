@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:43 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/22 15:31:08 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/23 16:37:11 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,33 @@ void	printf_list(t_big_box *box)
 	}
 }
 
+int	get_range(t_stack_a **stack_a)
+{
+	int	size;
+
+	size = ft_lstsize_a(*stack_a);
+	if (size <= 100)
+		return (15);
+	else if (size <= 500)
+		return (30);
+	else
+		return (50);
+}
+
+// static void	ft_decide(t_big_box *b)
+// {
+// 	int	size;
+
+// 	size = ft_lstsize_a(b->stack_a_head);
+// 	if (size <= 100)
+// 		ft_big(&(b->stack_a_head), &(b->stack_b_head), 13);
+// 	else
+// 		ft_big(&(b->stack_a_head), &(b->stack_b_head), 37);
+// }
+
 int main(int argc, char **argv)
 {
+	int			size;
 	t_big_box	*b;
 
 	b = NULL;
@@ -44,25 +69,22 @@ int main(int argc, char **argv)
 		return (perror("Error\n"), 1);
 	if ((arguments_checker(argv)) == 0)
 		return (perror("Error\n"), 1);
-	// else
-		// printf("nice\n");
 	b = box_struct(b);
-	if (!b)
-		return (perror("Error: Box struct failed\n"), 1);
 	set_stack_a(b, argv);
+	size = ft_lstsize_a(b->stack_a_head);
 	index_all(b->stack_a_head);
-	// printf_list(b);
 	if (dup_check(b))
-		return (perror("Error dyal duop\n"), 1);
-	// else
-	// printf("m9awd\n");
+		return (perror("Error\n"), 1);
 	ranking_index(b->stack_a_head);
-	// printf_list(b);
-	if (argc == 4)
+	if (size == 3)
 		sort_three(b);
-	else if (argc > 4 && argc <= 6)
+	else if (size > 3 && size <= 5)
 		sort_four_or_five(b);
-	// printf_list(b);
+	else
+	{
+		ft_big(&(b->stack_a_head), &(b->stack_b_head), get_range(&(b->stack_a_head)));
+		// printf_list(b);
+	}
 	finished(b);
 	return (0);
 }
