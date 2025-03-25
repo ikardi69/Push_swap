@@ -6,13 +6,13 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 16:25:18 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/22 15:07:06 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/25 15:38:36 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    extract_alt(char **str, t_stack_a **box_a)
+void    extract_alt(char **str, t_stack_a **box_a, t_big_box *big_box)
 {
     int tmp;
     int i;
@@ -20,7 +20,7 @@ void    extract_alt(char **str, t_stack_a **box_a)
     i = -1;
     while (str[++i])
     {
-        tmp = ft_atoi(str[i]);
+        tmp = ft_atoi(str[i], big_box);
         ft_add_content(box_a, tmp);
     }
     free_arr_ptr(str);

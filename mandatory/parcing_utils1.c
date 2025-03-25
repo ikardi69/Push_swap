@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 14:32:23 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/23 17:06:00 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/25 15:38:52 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,9 @@ void	ft_add_content(t_stack_a **head, int content)
 
 void	set_stack_a(t_big_box *box, char **str)
 {
-	int		i;
-	char	**temp;
-	int		tmp;
+	int				i;
+	char			**temp;
+	long long		tmp;
 
 	i = 0;
 	while (str[++i])
@@ -88,11 +88,11 @@ void	set_stack_a(t_big_box *box, char **str)
 			temp = ft_split(str[i], ' ');
 			if (!temp)
 				return ;
-			extract_alt(temp, &(box->stack_a_head));
+			extract_alt(temp, &(box->stack_a_head), box);
 		}
 		else
 		{
-			tmp = ft_atoi(str[i]);
+			tmp = ft_atoi(str[i], box);
 			ft_add_content(&(box->stack_a_head), tmp);	
 		}
 	}
