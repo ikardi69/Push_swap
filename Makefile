@@ -2,13 +2,13 @@ CC = cc
 FLAGS = -Wall -Wextra -Werror
 
 NAME = push_swap
-BONUS_NAME = push_swap_bonus
+BONUS_NAME = checker
 
 MANDATORY_DIR = mandatory/
 BONUS_DIR = bonus/
 
 MANDATORY_HEADER = $(MANDATORY_DIR)push_swap.h
-BONUS_HEADER = $(BONUS_DIR)push_swap_bnus.h
+BONUS_HEADER = $(BONUS_DIR)push_swap_bonus.h
 
 SRC = $(MANDATORY_DIR)push_swap.c \
 		$(MANDATORY_DIR)parcing.c \
@@ -28,6 +28,10 @@ BONUS_SRC = $(BONUS_DIR)parcing_tools_bonus.c \
 			$(BONUS_DIR)parcing_utils1_bonus.c \
 			$(BONUS_DIR)parsing_util2bonus.c \
 			$(BONUS_DIR)push_swap_bonus.c \
+			$(BONUS_DIR)ft_split_bonus.c \
+			$(BONUS_DIR)parcing_bonus.c \
+			$(BONUS_DIR)get_next_line_bonus.c \
+			$(BONUS_DIR)get_next_line_utils_bonus.c
 
 BONUS_OBJ = $(BONUS_SRC:.c=.o)
 
@@ -39,7 +43,7 @@ $(NAME): $(OBJ) $(MANDATORY_HEADER)
 bonus: $(BONUS_NAME)
 
 $(BONUS_NAME): $(BONUS_OBJ) $(BONUS_HEADER)
-	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(FLAGS) $(BONUS_OBJ) -o $(BONUS_NAME)
 
 %.o: %.c $(MANDATORY_HEADER)
 	$(CC) $(FLAGS) -c $< -o $@
@@ -48,10 +52,10 @@ $(BONUS_NAME): $(BONUS_OBJ) $(BONUS_HEADER)
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(BONUS_OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(BONUS_NAME)
 
 re : fclean all
 

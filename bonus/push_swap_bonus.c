@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:43 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/25 17:09:57 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/27 23:28:11 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	finished(t_big_box *big_box, int sign)
 {
 	ft_lstclear_stack_a(&(big_box->stack_a_head));
 	ft_lstclear_stack_b(&(big_box->stack_b_head));
+	free(big_box->joined);
 	free(big_box);
 	if (sign)
 		exit(1);
@@ -49,22 +50,51 @@ int	get_range(t_stack_a **stack_a)
 		return (37);
 }
 
-static void	ft_decide(t_big_box *b)
-{
-	int	size;
+// static void	ft_decide(t_big_box *b)
+// {
+// 	int	size;
 
-	size = ft_lstsize_a(b->stack_a_head);
-	if (size == 3)
-		sort_three(b);
-	else if (size > 3 && size <= 5)
-		sort_four_or_five(b);
-	else
-		ft_big(&(b->stack_a_head), &(b->stack_b_head), get_range(&(b->stack_a_head)));
+// 	size = ft_lstsize_a(b->stack_a_head);
+// 	if (size == 3)
+// 		sort_three(b);
+// 	else if (size > 3 && size <= 5)
+// 		sort_four_or_five(b);
+// 	else
+// 		ft_big(&(b->stack_a_head), &(b->stack_b_head), get_range(&(b->stack_a_head)));
+// }
+
+void	ft_check_moves(char *commands, t_big_box *b)
+{
+	if (!ft_strcmp(commands, "sa\n"))
+		return ;
+	else if (!ft_strcmp(commands, "sb\n"))
+		return ;
+	else if (!ft_strcmp(commands, "ss\n"))
+		return ;
+	else if (!ft_strcmp(commands, "pa\n"))
+		return ;
+	else if (!ft_strcmp(commands, "pb\n"))
+		return ;
+	else if (!ft_strcmp(commands, "ra\n"))
+		return ;
+	else if (!ft_strcmp(commands, "rb\n"))
+		return ;
+	else if (!ft_strcmp(commands, "rr\n"))
+		return ;
+	else if (!ft_strcmp(commands, "rra\n"))
+		return ;
+	else if (!ft_strcmp(commands, "rrb\n"))
+		return ;
+	else if (!ft_strcmp(commands, "rrr\n"))
+		return ;
+	free(commands);
+	finished(b, 1);
 }
 
 int main(int argc, char **argv)
 {
 	t_big_box	*b;
+	char		*commands = NULL;
 
 	b = NULL;
 	if (argc < 2)
@@ -73,10 +103,16 @@ int main(int argc, char **argv)
 		return (perror("Error\n"), 1);
 	b = box_struct(b);
 	set_stack_a(b, argv);
-	index_all(b->stack_a_head);
+	// index_all(b->stack_a_head);
 	if (dup_check(b))
 		return (perror("Error\n"), 1);
-	ranking_index(b->stack_a_head);
-	ft_decide(b);
+	while ((commands = get_next_line(0)))
+	{
+		ft_check_moves(commands, b);
+		free(commands);
+	}
+	// ranking_index(b->stack_a_head);
+	// ft_decide(b);
+	puts("wslna lhna\n");
 	return (finished(b, 0), 0);
 }

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parcing_tools.c                                    :+:      :+:    :+:   */
+/*   parcing_tools_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:48:10 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/23 16:27:25 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/27 23:24:38 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 t_big_box  	*box_struct(t_big_box *head)
 {
@@ -19,6 +19,8 @@ t_big_box  	*box_struct(t_big_box *head)
 		return (perror("Error\n"), exit(1), NULL);
 	head->stack_a_head = NULL;
 	head->stack_b_head = NULL;
+	head->moves = NULL;
+	head->joined = NULL;
 	return (head);
 }
 

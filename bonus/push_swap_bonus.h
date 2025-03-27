@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:49 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/25 17:09:22 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/27 23:25:05 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
 
 typedef struct s_stack_a
 {
@@ -35,6 +38,8 @@ typedef struct s_big_box
 {
 	struct s_stack_a	*stack_a_head;
 	struct s_stack_b	*stack_b_head;
+	char				*joined;
+	char				**moves;
 }t_big_box;
 
 
@@ -57,7 +62,9 @@ void		ft_add_content(t_stack_a **head, int content);
 int			dup_check(t_big_box *box);
 char		*ft_strdup(const char *s);
 size_t		ft_strlen(const char *s);
-void		*ft_memcpy(void *dest, const void *src, size_t n);
+// void		*ft_memcpy(void *dest, const void *src, size_t n);
+
+int			ft_strcmp(char *s1, char *s2);
 
 int			ft_lstsize_a(t_stack_a *lst);
 int			ft_lstsize_b(t_stack_b *lst);
@@ -69,6 +76,14 @@ void		ft_lstclear_stack_b(t_stack_b **lst);
 void		index_all(t_stack_a *stack_a);
 void		ranking_index(t_stack_a *stack_a);
 void		ft_putstr(char *str);
+
+/* Get Next Line*/
+
+char	*get_next_line(int fd);
+char	*ft_strjoin(char *s1, char *s2);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
+char	*ft_nl(char *buffer);
+char	*ft_inc(char *bf, char *remainder, int nl, int i);
 
 /* The operations*/ // we have a problem in printing the operation if we use an operation that execute other operations
 
