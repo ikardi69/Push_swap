@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 16:25:18 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/27 16:52:20 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/28 14:28:17 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,28 +48,6 @@ size_t	ft_strlen(const char *s)
 	while (s[i] != '\0')
 		i++;
 	return (i);
-}
-
-
-void	*ft_memcpy(void *dest, const void *src, size_t n)
-{
-	unsigned char		*dptr;
-	const unsigned char	*sptr;
-	size_t				i;
-
-	if (!dest && !src)
-		return (NULL);
-	i = 0;
-	dptr = (unsigned char *)dest;
-	sptr = (const unsigned char *)src;
-	if (dptr == sptr)
-		return (dptr);
-	while (i < n)
-	{
-		dptr[i] = sptr[i];
-		i++;
-	}
-	return (dest);
 }
 
 int	ft_lstsize_a(t_stack_a *lst)

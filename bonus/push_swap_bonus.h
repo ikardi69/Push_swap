@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:49 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/27 23:25:05 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/28 15:47:56 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,23 +81,30 @@ void		ft_putstr(char *str);
 
 char	*get_next_line(int fd);
 char	*ft_strjoin(char *s1, char *s2);
+int		ft_strlen_int(const char *s);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 char	*ft_nl(char *buffer);
 char	*ft_inc(char *bf, char *remainder, int nl, int i);
 
 /* The operations*/ // we have a problem in printing the operation if we use an operation that execute other operations
 
-void		sa(t_stack_a **stack_a, int sign);
-void		sb(t_stack_b **stack_b, int sign);
+void		sa(t_stack_a **stack_a);
+void		sb(t_stack_b **stack_b);
 void		ss(t_stack_a **stack_a, t_stack_b **stack_b);
 void		pa(t_stack_a **stack_a, t_stack_b **stack_b);
 void		pb(t_stack_a **stack_a, t_stack_b **stack_b);
-void		ra(t_stack_a **stack_a, int sign);
-void		rb(t_stack_b **stack_b, int sign);
+void		ra(t_stack_a **stack_a);
+void		rb(t_stack_b **stack_b);
 void		rr(t_stack_a **stack_a, t_stack_b **stack_b);
-void		rra(t_stack_a **stack_a, int sign);
-void		rrb(t_stack_b **stack_b, int sign);
+void		rra(t_stack_a **stack_a);
+void		rrb(t_stack_b **stack_b);
 void		rrr(t_stack_a **stack_a, t_stack_b **stack_b);
+
+/*checker*/
+
+void		reading_operations(t_big_box *big_box);
+void		setup_opperations(t_big_box *big_box);
+void		final_check(t_big_box *big_box);
 
 // /*Sort Three*/
 

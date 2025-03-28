@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:43 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/25 15:46:15 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/28 17:02:28 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int main(int argc, char **argv)
 
 	b = NULL;
 	if (argc < 2)
-		return (perror("Error\n"), 1);
+		return (0);
 	if ((arguments_checker(argv)) == 0)
 		return (perror("Error\n"), 1);
 	b = box_struct(b);

@@ -31,7 +31,10 @@ BONUS_SRC = $(BONUS_DIR)parcing_tools_bonus.c \
 			$(BONUS_DIR)ft_split_bonus.c \
 			$(BONUS_DIR)parcing_bonus.c \
 			$(BONUS_DIR)get_next_line_bonus.c \
-			$(BONUS_DIR)get_next_line_utils_bonus.c
+			$(BONUS_DIR)get_next_line_utils_bonus.c \
+			$(BONUS_DIR)apply_operations_bonus.c \
+			$(BONUS_DIR)moves1.c \
+			$(BONUS_DIR)moves2.c
 
 BONUS_OBJ = $(BONUS_SRC:.c=.o)
 

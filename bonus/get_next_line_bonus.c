@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 15:03:53 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/27 22:56:54 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/28 14:26:27 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static char	*ft_next_line(char *buffer)
 		i++;
 	if (buffer[i] == '\0')
 		return (free(buffer), buffer = NULL);
-	j = ft_strlen(buffer) - i;
+	j = ft_strlen_int(buffer) - i;
 	rem = (char *)malloc(j);
 	if (!rem)
 		return (free(buffer), buffer = NULL);

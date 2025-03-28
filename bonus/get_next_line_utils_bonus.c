@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 17:24:32 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/27 18:23:00 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/28 14:27:03 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,48 +26,48 @@ char	*ft_strjoin(char *s1, char *s2)
 	}
 	if (!s2)
 		return (free(s1), s1 = NULL);
-	size = ft_strlen(s1) + ft_strlen(s2);
+	size = ft_strlen_int(s1) + ft_strlen(s2);
 	result = (char *)malloc(size + 1);
 	if (!result)
 		return (free(s1), s1 = NULL);
-	ft_memcpy(result, s1, ft_strlen(s1));
-	ft_memcpy(result + ft_strlen(s1), s2, ft_strlen(s2));
+	ft_memcpy(result, s1, ft_strlen_int(s1));
+	ft_memcpy(result + ft_strlen_int(s1), s2, ft_strlen_int(s2));
 	result[size] = '\0';
 	return (free(s1), s1 = NULL, result);
 }
 
-// int	ft_strlen(const char *s)
-// {
-// 	int	i;
+int	ft_strlen_int(const char *s)
+{
+	int	i;
 
-// 	if (!s)
-// 		return (0);
-// 	i = 0;
-// 	while (s[i] != '\0')
-// 		i++;
-// 	return (i);
-// }
+	if (!s)
+		return (0);
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
 
-// void	*ft_memcpy(void *dest, const void *src, size_t n)
-// {
-// 	unsigned char		*dptr;
-// 	const unsigned char	*sptr;
-// 	size_t				i;
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	unsigned char		*dptr;
+	const unsigned char	*sptr;
+	size_t				i;
 
-// 	if (!dest && !src)
-// 		return (NULL);
-// 	i = 0;
-// 	dptr = (unsigned char *)dest;
-// 	sptr = (const unsigned char *)src;
-// 	if (dptr == sptr)
-// 		return (dptr);
-// 	while (i < n)
-// 	{
-// 		dptr[i] = sptr[i];
-// 		i++;
-// 	}
-// 	return (dest);
-// }
+	if (!dest && !src)
+		return (NULL);
+	i = 0;
+	dptr = (unsigned char *)dest;
+	sptr = (const unsigned char *)src;
+	if (dptr == sptr)
+		return (dptr);
+	while (i < n)
+	{
+		dptr[i] = sptr[i];
+		i++;
+	}
+	return (dest);
+}
 
 char	*ft_nl(char *buffer)
 {

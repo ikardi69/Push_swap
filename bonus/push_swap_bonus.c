@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:43 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/27 23:28:11 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/28 17:02:25 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,14 +91,32 @@ void	ft_check_moves(char *commands, t_big_box *b)
 	finished(b, 1);
 }
 
+void	reading_operations(t_big_box *big_box)
+{
+	char	*commands;
+
+	commands = NULL;
+	while (1)
+	{
+		commands = get_next_line(0);
+		if (!commands)
+			break ;
+		ft_check_moves(commands, big_box);
+		big_box->joined = ft_strjoin(big_box->joined, commands);
+		if (!big_box->joined)
+			finished(big_box, 1);
+		free(commands);
+	}
+	setup_opperations(big_box);
+}
+
 int main(int argc, char **argv)
 {
 	t_big_box	*b;
-	char		*commands = NULL;
-
+	
 	b = NULL;
 	if (argc < 2)
-		return (perror("Error\n"), 1);
+		return (0);
 	if ((arguments_checker(argv)) == 0)
 		return (perror("Error\n"), 1);
 	b = box_struct(b);
@@ -106,13 +124,10 @@ int main(int argc, char **argv)
 	// index_all(b->stack_a_head);
 	if (dup_check(b))
 		return (perror("Error\n"), 1);
-	while ((commands = get_next_line(0)))
-	{
-		ft_check_moves(commands, b);
-		free(commands);
-	}
+	reading_operations(b);
 	// ranking_index(b->stack_a_head);
 	// ft_decide(b);
 	puts("wslna lhna\n");
+	printf("ha joined%s\n", b->joined);
 	return (finished(b, 0), 0);
 }
