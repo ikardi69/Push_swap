@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:43 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/29 15:42:14 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/29 15:54:01 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,10 +104,8 @@ int main(int argc, char **argv)
 		return (perror("Error\n"), 1);
 	b = box_struct(b);
 	set_stack_a(b, argv);
-	// index_all(b->stack_a_head);
 	if (dup_check(b))
 		return (perror("Error\n"), 1);
 	reading_operations(b);
-	// ranking_index(b->stack_a_head);
 	return (finished(b, 0), 0);
 }

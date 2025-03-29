@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:49 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/25 15:46:24 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/29 15:55:04 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void		index_all(t_stack_a *stack_a);
 void		ranking_index(t_stack_a *stack_a);
 void		ft_putstr(char *str);
 
-/* The operations*/ // we have a problem in printing the operation if we use an operation that execute other operations
+/* The operations*/
 
 void		sa(t_stack_a **stack_a, int sign);
 void		sb(t_stack_b **stack_b, int sign);
@@ -93,7 +93,7 @@ void		sort_three(t_big_box *big_box);
 void		push_two_smallest(t_stack_a **stack_a, t_stack_b **stack_b);
 void		sort_four_or_five(t_big_box *big_box);
 
-/*Sorting 100 or fewer numbers*/
+/*Sorting 100 or more*/
 
 void		ft_big(t_stack_a **stack_a, t_stack_b **stack_b, int range);
 int			get_range(t_stack_a **stack_a);
