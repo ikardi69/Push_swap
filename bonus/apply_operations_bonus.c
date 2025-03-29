@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 14:46:51 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/28 16:10:32 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/28 23:46:06 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	setup_opperations(t_big_box *big_box)
 {
 	int	i;
 
-	printf("joined = %s\n", big_box->joined);
 	big_box->moves = ft_split(big_box->joined, '\n');
 	if (!big_box->moves)
 		finished(big_box, 1);
@@ -66,11 +65,11 @@ void	final_check(t_big_box *big_box)
 	{
 		if (tmp->content >tmp->next->content)
 		{
-			write(1, "Ko\n", ft_strlen("Ko\n"));
+			write(1, "KO\n", ft_strlen("KO\n"));
 			finished(big_box, 1);
 		}
 		tmp = tmp->next;
 	}
-	write(1, "Ok", ft_strlen("Ok"));
+	write(1, "OK\n", ft_strlen("OK\n"));
 	finished(big_box, 0);
 }
