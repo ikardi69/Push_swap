@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 14:32:23 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/27 16:52:14 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/29 16:09:27 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int arguments_checker(char **str)
 		i = -1;
 		while (str[x][++i])
 		{
-			if (str[x][i] == '-' && (str[x][i - 1] != ' ' || i != 0))
+			if (str[x][i] == '-' && (str[x][i - 1] != ' ' && i != 0))
 				return (0);
 			else if (str[x][i + 1] == '\0')
 			{

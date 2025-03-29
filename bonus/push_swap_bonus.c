@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:43 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/29 15:54:01 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/29 16:49:46 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,8 @@ void	reading_operations(t_big_box *big_box)
 	char	*commands;
 
 	commands = NULL;
-	while (1)
+	while ((commands = get_next_line(0)))
 	{
-		commands = get_next_line(0);
-		if (!commands)
-			break ;
 		ft_check_moves(commands, big_box);
 		big_box->joined = ft_strjoin(big_box->joined, commands);
 		if (!big_box->joined)
