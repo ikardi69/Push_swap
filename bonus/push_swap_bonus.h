@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:49 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/28 15:47:56 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/29 15:09:36 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,6 @@ void		finished(t_big_box *big_box, int sign);
 
 void		ft_lstclear_stack_a(t_stack_a **lst);
 void		ft_lstclear_stack_b(t_stack_b **lst);
-void		index_all(t_stack_a *stack_a);
-void		ranking_index(t_stack_a *stack_a);
 void		ft_putstr(char *str);
 
 /* Get Next Line*/

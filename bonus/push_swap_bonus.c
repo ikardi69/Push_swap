@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:43 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/28 17:02:25 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/29 15:42:14 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,26 @@
 
 void	finished(t_big_box *big_box, int sign)
 {
+	int	i;
 	ft_lstclear_stack_a(&(big_box->stack_a_head));
 	ft_lstclear_stack_b(&(big_box->stack_b_head));
-	free(big_box->joined);
+	if (big_box->joined)
+		free(big_box->joined);
+	if (big_box->moves)
+	{
+		i = -1;
+		while (big_box->moves[++i])
+		{
+			free(big_box->moves[i]);
+		}
+	}
+	if (big_box->moves)
+		free(big_box->moves);
 	free(big_box);
 	if (sign)
 		exit(1);
 	else
 		exit(0);
-}
-
-void	printf_list(t_big_box *box)
-{
-	int	i;
-	t_stack_a	*tmp;
-
-	i = 0;
-	tmp = box->stack_a_head;
-	while (tmp)
-	{
-		printf("content = %llu, index = %d, rank in loop = %d\n", tmp->content, tmp->index, i);
-		i++;
-		tmp = tmp->next;
-	}
 }
 
 int	get_range(t_stack_a **stack_a)
@@ -49,19 +46,6 @@ int	get_range(t_stack_a **stack_a)
 	else
 		return (37);
 }
-
-// static void	ft_decide(t_big_box *b)
-// {
-// 	int	size;
-
-// 	size = ft_lstsize_a(b->stack_a_head);
-// 	if (size == 3)
-// 		sort_three(b);
-// 	else if (size > 3 && size <= 5)
-// 		sort_four_or_five(b);
-// 	else
-// 		ft_big(&(b->stack_a_head), &(b->stack_b_head), get_range(&(b->stack_a_head)));
-// }
 
 void	ft_check_moves(char *commands, t_big_box *b)
 {
@@ -87,7 +71,6 @@ void	ft_check_moves(char *commands, t_big_box *b)
 		return ;
 	else if (!ft_strcmp(commands, "rrr\n"))
 		return ;
-	free(commands);
 	finished(b, 1);
 }
 
@@ -126,8 +109,5 @@ int main(int argc, char **argv)
 		return (perror("Error\n"), 1);
 	reading_operations(b);
 	// ranking_index(b->stack_a_head);
-	// ft_decide(b);
-	puts("wslna lhna\n");
-	printf("ha joined%s\n", b->joined);
 	return (finished(b, 0), 0);
 }
