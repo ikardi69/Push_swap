@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:43 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/29 16:49:46 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/03/31 12:46:39 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int main(int argc, char **argv)
 	b = box_struct(b);
 	set_stack_a(b, argv);
 	if (dup_check(b))
-		return (perror("Error\n"), 1);
+		return (perror("Error\n"), finished(b, 1), 1);
 	reading_operations(b);
 	return (finished(b, 0), 0);
 }
