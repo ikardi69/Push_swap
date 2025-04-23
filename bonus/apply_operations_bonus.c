@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 14:46:51 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/29 15:37:51 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/04/21 18:09:47 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	final_check(t_big_box *big_box)
 	tmp = big_box->stack_a_head;
 	while (tmp && tmp->next)
 	{
-		if (tmp->content >tmp->next->content)
+		if (tmp->content > tmp->next->content)
 		{
 			ft_putstr("KO\n");
 			finished(big_box, 1);

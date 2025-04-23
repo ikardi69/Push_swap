@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:43 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/31 13:12:33 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/04/21 18:04:14 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,6 @@ void	finished(t_big_box *big_box, int sign)
 		exit(1);
 	else
 		exit(0);
-}
-
-void	printf_list(t_big_box *box)
-{
-	int	i;
-	t_stack_a	*tmp;
-
-	i = 0;
-	tmp = box->stack_a_head;
-	while (tmp)
-	{
-		printf("content = %llu, index = %d, rank in loop = %d\n", tmp->content, tmp->index, i);
-		i++;
-		tmp = tmp->next;
-	}
 }
 
 int	get_range(t_stack_a **stack_a)
@@ -59,10 +44,11 @@ static void	ft_decide(t_big_box *b)
 	else if (size > 3 && size <= 5)
 		sort_four_or_five(b);
 	else
-		ft_big(&(b->stack_a_head), &(b->stack_b_head), get_range(&(b->stack_a_head)));
+		ft_big(&(b->stack_a_head), &(b->stack_b_head),
+			get_range(&(b->stack_a_head)));
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_big_box	*b;
 

@@ -6,37 +6,11 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 16:26:52 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/25 14:17:14 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/04/21 12:27:03 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// static void	printf_list_lhad_zab(t_stack_a *stack_a, t_stack_b *stack_b)
-// {
-// 	int	i;
-// 	t_stack_a	*tmp_a;
-// 	t_stack_b	*tmp_b;
-
-// 	i = 0;
-// 	tmp_a = stack_a;
-// 	tmp_b = stack_b;
-// 	puts("stack_a :\n");
-// 	while (tmp_a)
-// 	{
-// 		printf("content = %llu, index = %d, rank in loop = %d\n", tmp_a->content, tmp_a->index, i);
-// 		i++;
-// 		tmp_a = tmp_a->next;
-// 	}
-// 	i = 0;
-// 	puts("stack_b :\n");
-// 	while (tmp_b)
-// 	{
-// 		printf("content = %llu, index = %d, rank in loop = %d\n", tmp_b->content, tmp_b->index, i);
-// 		i++;
-// 		tmp_b = tmp_b->next;
-// 	}
-// }
 
 int	find_big_index(t_stack_b *stack_b)
 {
@@ -73,7 +47,7 @@ int	find_max_position(t_stack_b *stack_b, int max)
 
 void	final_s(t_stack_a **stack_a, t_stack_b **stack_b)
 {
-	int	max;
+	int			max;
 	t_stack_b	*tmp_b;
 
 	while (*stack_b)
@@ -89,7 +63,8 @@ void	final_s(t_stack_a **stack_a, t_stack_b **stack_b)
 		}
 		else
 		{
-			if (find_max_position(*stack_b, max) <= (ft_lstsize_b(*stack_b) / 2))
+			if (find_max_position(*stack_b, max)
+				<= (ft_lstsize_b(*stack_b) / 2))
 				rb(stack_b, 1);
 			else
 				rrb(stack_b, 1);
@@ -119,5 +94,4 @@ void	ft_big(t_stack_a **stack_a, t_stack_b **stack_b, int range)
 			ra(stack_a, 1);
 	}
 	final_s(stack_a, stack_b);
-	// printf_list_lhad_zab(*stack_a, *stack_b);
 }

@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 14:43:31 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/28 15:53:24 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/04/21 12:50:50 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ra(t_stack_a **stack_a, int sign)
 {
-	t_stack_a   *first;
+	t_stack_a	*first;
 
 	if (!stack_a || !*stack_a || !(*stack_a)->next)
 		return ;
@@ -42,8 +42,8 @@ void	rb(t_stack_b **stack_b, int sign)
 
 void	rr(t_stack_a **stack_a, t_stack_b **stack_b)
 {
-	if (!stack_a || !*stack_a || !(*stack_a)->next ||
-		!stack_b || !*stack_b || !(*stack_b)->next)
+	if (!stack_a || !*stack_a || !(*stack_a)->next
+		|| !stack_b || !*stack_b || !(*stack_b)->next)
 		return ;
 	ra(stack_a, 0);
 	rb(stack_b, 0);
@@ -71,31 +71,10 @@ void	rra(t_stack_a **stack_a, int sign)
 		ft_putstr("rra\n");
 }
 
-void	rrb(t_stack_b **stack_b, int sign)
-{
-	t_stack_b	*last;
-	t_stack_b	*second_last;
-
-	if (!stack_b || !*stack_b || !(*stack_b)->next)
-		return ;
-	last = *stack_b;
-	second_last = NULL;
-	while (last->next)
-	{
-		second_last = last;
-		last = last->next;
-	}
-	last->next = *stack_b;
-	second_last->next = NULL;
-	*stack_b = last;
-	if (sign)
-		ft_putstr("rrb\n");
-}
-
 void	rrr(t_stack_a **stack_a, t_stack_b **stack_b)
 {
-	if (!stack_a || !*stack_a || !(*stack_a)->next ||
-		!stack_b || !*stack_b || !(*stack_b)->next)
+	if (!stack_a || !*stack_a || !(*stack_a)->next
+		|| !stack_b || !*stack_b || !(*stack_b)->next)
 		return ;
 	rra(stack_a, 0);
 	rrb(stack_b, 0);

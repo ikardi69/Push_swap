@@ -6,24 +6,24 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 16:25:18 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/28 14:28:17 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/04/23 17:14:11 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-void    extract_alt(char **str, t_stack_a **box_a, t_big_box *big_box)
+void	extract_alt(char **str, t_stack_a **box_a, t_big_box *big_box)
 {
-    int tmp;
-    int i;
+	int	tmp;
+	int	i;
 
-    i = -1;
-    while (str[++i])
-    {
-        tmp = ft_atoi(str[i], big_box);
-        ft_add_content(box_a, tmp);
-    }
-    free_arr_ptr(str);
+	i = -1;
+	while (str[++i])
+	{
+		tmp = ft_atoi(str[i], big_box);
+		ft_add_content(box_a, tmp);
+	}
+	free_arr_ptr(str);
 }
 
 char	*ft_strdup(const char *s)

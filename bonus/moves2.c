@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 15:52:50 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/28 15:53:03 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/04/21 18:13:07 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ra(t_stack_a **stack_a)
 {
-	t_stack_a   *first;
+	t_stack_a	*first;
 
 	if (!stack_a || !*stack_a || !(*stack_a)->next)
 		return ;
@@ -38,30 +38,11 @@ void	rb(t_stack_b **stack_b)
 
 void	rr(t_stack_a **stack_a, t_stack_b **stack_b)
 {
-	if (!stack_a || !*stack_a || !(*stack_a)->next ||
-		!stack_b || !*stack_b || !(*stack_b)->next)
+	if (!stack_a || !*stack_a || !(*stack_a)->next
+		|| !stack_b || !*stack_b || !(*stack_b)->next)
 		return ;
 	ra(stack_a);
 	rb(stack_b);
-}
-
-void	rra(t_stack_a **stack_a)
-{
-	t_stack_a	*last;
-	t_stack_a	*second_last;
-
-	if (!stack_a || !*stack_a || !(*stack_a)->next)
-		return ;
-	last = *stack_a;
-	second_last = NULL;
-	while (last->next)
-	{
-		second_last = last;
-		last = last->next;
-	}
-	last->next = *stack_a;
-	second_last->next = NULL;
-	*stack_a = last;
 }
 
 void	rrb(t_stack_b **stack_b)
@@ -85,8 +66,8 @@ void	rrb(t_stack_b **stack_b)
 
 void	rrr(t_stack_a **stack_a, t_stack_b **stack_b)
 {
-	if (!stack_a || !*stack_a || !(*stack_a)->next ||
-		!stack_b || !*stack_b || !(*stack_b)->next)
+	if (!stack_a || !*stack_a || !(*stack_a)->next
+		|| !stack_b || !*stack_b || !(*stack_b)->next)
 		return ;
 	rra(stack_a);
 	rrb(stack_b);

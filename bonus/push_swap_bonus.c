@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:43 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/31 12:46:39 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/04/23 17:48:55 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	finished(t_big_box *big_box, int sign)
 {
 	int	i;
+
 	ft_lstclear_stack_a(&(big_box->stack_a_head));
 	ft_lstclear_stack_b(&(big_box->stack_b_head));
 	if (big_box->joined)
@@ -79,8 +80,11 @@ void	reading_operations(t_big_box *big_box)
 	char	*commands;
 
 	commands = NULL;
-	while ((commands = get_next_line(0)))
+	while (1)
 	{
+		commands = get_next_line(0);
+		if (!commands)
+			break ;
 		ft_check_moves(commands, big_box);
 		big_box->joined = ft_strjoin(big_box->joined, commands);
 		if (!big_box->joined)
@@ -90,10 +94,10 @@ void	reading_operations(t_big_box *big_box)
 	setup_opperations(big_box);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_big_box	*b;
-	
+
 	b = NULL;
 	if (argc < 2)
 		return (0);

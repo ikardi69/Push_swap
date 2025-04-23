@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 14:25:29 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/29 15:11:50 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/04/21 12:47:21 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	index_all(t_stack_a *stack_a)
 {
-	t_stack_a  	*tmp;
+	t_stack_a	*tmp;
 
 	tmp = stack_a;
 	if (!tmp)
@@ -39,17 +39,17 @@ void	ranking_index(t_stack_a *stack_a)
 		smallest_node = NULL;
 		while (current && current->index != -1)
 			current = current->next;
-
 		if (!current)
 			break ;
 		smallest_node = current;
 		while (current)
 		{
-			if (current->index == -1 && current->content < smallest_node->content)
+			if (current->index == -1
+				&& current->content < smallest_node->content)
 				smallest_node = current;
 			current = current->next;
 		}
-		smallest_node->index = current_index++;		
+		smallest_node->index = current_index++;
 	}
 }
 

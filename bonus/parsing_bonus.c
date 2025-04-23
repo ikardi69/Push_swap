@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parcing_bonus.c                                    :+:      :+:    :+:   */
+/*   parsing_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:19:49 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/31 13:16:02 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/04/23 17:51:31 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ static int	ft_checklong(size_t counter, long long nbr, int sign)
 	return (1);
 }
 
-static void	ft_space_sign(const char *str, size_t *i, int *sign, t_big_box *big_box)
+static void	ft_space_sign(const char *str, size_t *i,
+			int *sign, t_big_box *big_box)
 {
 	while (str[*i] == ' ' && str[*i])
 		(*i)++;
@@ -66,7 +67,8 @@ int	ft_atoi(const char *str, t_big_box *big_box)
 		nbr += str[i] - 48;
 		counter++;
 		if (ft_checklong(counter, nbr, sign) <= 0)
-			return (perror("Error\n"), finished(big_box, 1), ft_checklong(counter, nbr, sign));
+			return (perror("Error\n"), finished(big_box, 1),
+				ft_checklong(counter, nbr, sign));
 		i++;
 	}
 	if (nbr > 2147483647)

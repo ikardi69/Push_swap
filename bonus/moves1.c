@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 15:52:26 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/28 15:52:42 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/04/21 18:10:56 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	sb(t_stack_b **stack_b)
 void	ss(t_stack_a **stack_a, t_stack_b **stack_b)
 {
 	sa(stack_a);
-	sb(stack_b);;
+	sb(stack_b);
 }
 
 void	pa(t_stack_a **stack_a, t_stack_b **stack_b)

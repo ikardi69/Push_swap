@@ -6,24 +6,24 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 16:25:18 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/03/25 15:38:36 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/04/21 18:01:59 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    extract_alt(char **str, t_stack_a **box_a, t_big_box *big_box)
+void	extract_alt(char **str, t_stack_a **box_a, t_big_box *big_box)
 {
-    int tmp;
-    int i;
+	int	tmp;
+	int	i;
 
-    i = -1;
-    while (str[++i])
-    {
-        tmp = ft_atoi(str[i], big_box);
-        ft_add_content(box_a, tmp);
-    }
-    free_arr_ptr(str);
+	i = -1;
+	while (str[++i])
+	{
+		tmp = ft_atoi(str[i], big_box);
+		ft_add_content(box_a, tmp);
+	}
+	free_arr_ptr(str);
 }
 
 char	*ft_strdup(const char *s)
@@ -50,7 +50,6 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	unsigned char		*dptr;
@@ -73,21 +72,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 }
 
 int	ft_lstsize_a(t_stack_a *lst)
-{
-	int	i;
-
-	if (!lst)
-		return (0);
-	i = 0;
-	while (lst)
-	{
-		i++;
-		lst = lst->next;
-	}
-	return (i);
-}
-
-int	ft_lstsize_b(t_stack_b *lst)
 {
 	int	i;
 
