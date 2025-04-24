@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:49 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/04/23 17:50:58 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/04/24 15:54:53 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,6 @@ void		rrr(t_stack_a **stack_a, t_stack_b **stack_b);
 void		reading_operations(t_big_box *big_box);
 void		setup_opperations(t_big_box *big_box);
 void		final_check(t_big_box *big_box);
+int			sorted_check(t_big_box *box);
 
 #endif

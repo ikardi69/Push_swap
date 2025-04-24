@@ -22,7 +22,8 @@ SRC = $(MANDATORY_DIR)push_swap.c \
 		$(MANDATORY_DIR)four_or_five.c \
 		$(MANDATORY_DIR)big_one.c \
 		$(MANDATORY_DIR)moves_3.c \
-		$(MANDATORY_DIR)parcing_utils3.c
+		$(MANDATORY_DIR)parsing_utils3.c \
+		$(MANDATORY_DIR)parsing_util4.c
 
 OBJ = $(SRC:.c=.o)
 

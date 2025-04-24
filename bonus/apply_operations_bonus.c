@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 14:46:51 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/04/21 18:09:47 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/04/24 15:59:14 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,20 @@ void	final_check(t_big_box *big_box)
 	}
 	ft_putstr("OK\n");
 	finished(big_box, 0);
+}
+
+int	sorted_check(t_big_box *box)
+{
+	t_stack_a	*tmp_a;
+
+	tmp_a = box->stack_a_head;
+	while (tmp_a && tmp_a->next)
+	{
+		if (tmp_a->content > tmp_a->next->content)
+			return (0);
+		tmp_a = tmp_a->next;
+	}
+	ft_putstr("OK\n");
+	finished(box, 0);
+	return (1);
 }

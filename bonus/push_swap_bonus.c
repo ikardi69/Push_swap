@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:43 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/04/23 17:48:55 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/04/24 15:55:11 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ int	main(int argc, char **argv)
 	set_stack_a(b, argv);
 	if (dup_check(b))
 		return (perror("Error\n"), finished(b, 1), 1);
+	sorted_check(b);
 	reading_operations(b);
 	return (finished(b, 0), 0);
 }
