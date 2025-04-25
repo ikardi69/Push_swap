@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:43 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/04/21 18:04:14 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/04/25 13:48:20 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int	main(int argc, char **argv)
 		return (0);
 	if ((arguments_checker(argv)) == 0)
 		return (perror("Error\n"), 1);
+	check_empty_args(argv);
 	b = box_struct(b);
 	set_stack_a(b, argv);
 	index_all(b->stack_a_head);

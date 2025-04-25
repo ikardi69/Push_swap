@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 14:46:51 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/04/24 15:59:14 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/04/25 13:46:14 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,4 +89,20 @@ int	sorted_check(t_big_box *box)
 	ft_putstr("OK\n");
 	finished(box, 0);
 	return (1);
+}
+
+void	check_empty_args(char **argv)
+{
+	int	i;
+
+	i = 0;
+	while (argv[i])
+	{
+		if (argv[i][0] == '\0')
+		{
+			ft_putstr("Error\n");
+			exit(1);
+		}
+		i++;
+	}
 }

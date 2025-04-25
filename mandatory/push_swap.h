@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:49 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/04/21 18:03:13 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/04/25 13:47:36 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,20 +56,14 @@ int			dup_check(t_big_box *box);
 char		*ft_strdup(const char *s);
 size_t		ft_strlen(const char *s);
 void		*ft_memcpy(void *dest, const void *src, size_t n);
-
 int			ft_lstsize_a(t_stack_a *lst);
 int			ft_lstsize_b(t_stack_b *lst);
-
 void		finished(t_big_box *big_box, int sign);
-
 void		ft_lstclear_stack_a(t_stack_a **lst);
 void		ft_lstclear_stack_b(t_stack_b **lst);
 void		index_all(t_stack_a *stack_a);
 void		ranking_index(t_stack_a *stack_a);
 void		ft_putstr(char *str);
-
-/* The operations*/
-
 void		sa(t_stack_a **stack_a, int sign);
 void		sb(t_stack_b **stack_b, int sign);
 void		ss(t_stack_a **stack_a, t_stack_b **stack_b);
@@ -81,22 +75,14 @@ void		rr(t_stack_a **stack_a, t_stack_b **stack_b);
 void		rra(t_stack_a **stack_a, int sign);
 void		rrb(t_stack_b **stack_b, int sign);
 void		rrr(t_stack_a **stack_a, t_stack_b **stack_b);
-
-/*Sort Three*/
-
 void		sort_three(t_big_box *big_box);
-
-/*Sort four or five*/
-
 void		push_two_smallest(t_stack_a **stack_a, t_stack_b **stack_b);
 void		sort_four_or_five(t_big_box *big_box);
-
-/*Sorting 100 or more*/
-
 void		ft_big(t_stack_a **stack_a, t_stack_b **stack_b, int range);
 int			get_range(t_stack_a **stack_a);
 void		final_s(t_stack_a **stack_a, t_stack_b **stack_b);
 int			find_big_index(t_stack_b *stack_b);
 int			find_max_position(t_stack_b *stack_b, int max);
+void		check_empty_args(char **argv);
 
 #endif
