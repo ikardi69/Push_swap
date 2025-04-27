@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:43 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/04/25 13:48:32 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/04/27 15:08:31 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,8 @@ void	ft_check_moves(char *commands, t_big_box *b)
 		return ;
 	else if (!ft_strcmp(commands, "rrr\n"))
 		return ;
-	finished(b, 1);
+	write(2, "Error\n", 6);
+	finished(b, 0);
 }
 
 void	reading_operations(t_big_box *big_box)
@@ -91,6 +92,7 @@ void	reading_operations(t_big_box *big_box)
 			finished(big_box, 1);
 		free(commands);
 	}
+	sorted_check(big_box);
 	setup_opperations(big_box);
 }
 
@@ -102,13 +104,16 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	if ((arguments_checker(argv)) == 0)
-		return (perror("Error\n"), 1);
+		return (write(2, "Error\n", 6), 1);
 	check_empty_args(argv);
 	b = box_struct(b);
 	set_stack_a(b, argv);
 	if (dup_check(b))
-		return (perror("Error\n"), finished(b, 1), 1);
-	sorted_check(b);
+		return (write(2, "Error\n", 6), finished(b, 1), 1);
 	reading_operations(b);
+	if (!sorted_check(b))
+		return (ft_putstr("KO\n"), finished(b, 1), 1);
+	else
+		return (ft_putstr("OK\n"), finished(b, 1), 1);
 	return (finished(b, 0), 0);
 }

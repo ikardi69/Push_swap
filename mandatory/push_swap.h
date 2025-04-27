@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:49 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/04/25 13:47:36 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/04/27 15:19:15 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,8 @@ void		final_s(t_stack_a **stack_a, t_stack_b **stack_b);
 int			find_big_index(t_stack_b *stack_b);
 int			find_max_position(t_stack_b *stack_b, int max);
 void		check_empty_args(char **argv);
+int			check_ops(t_stack_a *a);
+int			sorted_check(t_big_box *box);
+void		sort_two(t_big_box *box);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:43 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/04/25 13:48:20 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/04/27 15:19:45 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,25 @@ int	get_range(t_stack_a **stack_a)
 		return (37);
 }
 
+void	sort_two(t_big_box *box)
+{
+	int	first;
+	int	second;
+
+	first = box->stack_a_head->content;
+	second = box->stack_a_head->next->content;
+	if (first > second)
+		ra(&(box->stack_a_head), 1);
+}
+
 static void	ft_decide(t_big_box *b)
 {
 	int	size;
 
 	size = ft_lstsize_a(b->stack_a_head);
-	if (size == 3)
+	if (size == 2)
+		sort_two(b);
+	else if (size == 3)
 		sort_three(b);
 	else if (size > 3 && size <= 5)
 		sort_four_or_five(b);
@@ -53,16 +66,17 @@ int	main(int argc, char **argv)
 	t_big_box	*b;
 
 	b = NULL;
-	if (argc < 2)
-		return (0);
 	if ((arguments_checker(argv)) == 0)
-		return (perror("Error\n"), 1);
+		return (write(2, "Error\n", 6), 1);
 	check_empty_args(argv);
+	if (argc <= 2)
+		return (0);
 	b = box_struct(b);
 	set_stack_a(b, argv);
 	index_all(b->stack_a_head);
 	if (dup_check(b))
-		return (perror("Error\n"), finished(b, 1), 1);
+		return (write(2, "Error\n", 6), finished(b, 1), 1);
+	sorted_check(b);
 	ranking_index(b->stack_a_head);
 	ft_decide(b);
 	return (finished(b, 0), 0);

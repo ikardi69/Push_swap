@@ -1,0 +1,10 @@
+total 48
+drwxr-xr-x  5 mteffahi 2024_khouribga   110 Apr 26 15:26 .
+drwxr-xr-x 10 mteffahi 2024_khouribga   138 Apr 12 15:04 ..
+drwxr-xr-x  2 mteffahi 2024_khouribga  4096 Apr 26 13:48 bonus
+-rw-r--r--  1 mteffahi 2024_khouribga     0 Apr 26 15:26 file
+drwxr-xr-x  8 mteffahi 2024_khouribga  4096 Apr 26 13:45 .git
+-rw-r--r--  1 mteffahi 2024_khouribga  1648 Apr 24 15:58 Makefile
+drwxr-xr-x  2 mteffahi 2024_khouribga  4096 Apr 26 15:24 mandatory
+-rwxr-xr-x  1 mteffahi 2024_khouribga 26728 Apr 26 15:24 push_swap
+-rw-r--r--  1 mteffahi 2024_khouribga    11 Mar 28 14:19 README.md

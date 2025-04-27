@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:19:49 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/04/23 17:51:31 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/04/26 16:01:40 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,12 @@ int	ft_atoi(const char *str, t_big_box *big_box)
 		nbr += str[i] - 48;
 		counter++;
 		if (ft_checklong(counter, nbr, sign) <= 0)
-			return (perror("Error\n"), finished(big_box, 1),
+			return (write(2, "Error\n", 6), finished(big_box, 1),
 				ft_checklong(counter, nbr, sign));
 		i++;
 	}
 	if (nbr > 2147483647)
-		return (perror("Error\n"), finished(big_box, 1), 1);
+		return (write(2, "Error\n", 6), finished(big_box, 1), 1);
 	return ((int)nbr * sign);
 }
 

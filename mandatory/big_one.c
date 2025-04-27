@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 16:26:52 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/04/21 12:27:03 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/04/26 13:50:25 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,29 @@ void	ft_big(t_stack_a **stack_a, t_stack_b **stack_b, int range)
 			rb(stack_b, 1);
 			i++;
 		}
+		else if (check_ops(*stack_a))
+			rra(stack_a, 1);
 		else
 			ra(stack_a, 1);
 	}
 	final_s(stack_a, stack_b);
+}
+
+int	check_ops(t_stack_a *a)
+{
+	int	count;
+	int	diff;
+
+	diff = 0;
+	count = 0;
+	while (a && a->next)
+	{
+		diff = a->index - a->next->index;
+		if (diff == 2 || diff == 3 || diff == 4)
+			count++;
+		a = a->next;
+	}
+	if (count * 10 >= (ft_lstsize_a(a) * 6))
+		return (1);
+	return (0);
 }

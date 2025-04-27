@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 14:43:04 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/04/21 12:28:48 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/04/27 13:49:19 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,20 @@ void	sort_four_or_five(t_big_box *big_box)
 		sb(&(big_box->stack_b_head), 1);
 	while (big_box->stack_b_head)
 		pa(&(big_box->stack_a_head), &(big_box->stack_b_head));
+}
+
+int	sorted_check(t_big_box *box)
+{
+	t_stack_a	*tmp_a;
+
+	tmp_a = box->stack_a_head;
+	while (tmp_a && tmp_a->next)
+	{
+		if (tmp_a->content > tmp_a->next->content)
+			return (0);
+		tmp_a = tmp_a->next;
+	}
+	finished(box, 0);
+	exit(0);
+	return (1);
 }

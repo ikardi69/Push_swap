@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 14:46:51 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/04/25 13:46:14 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/04/27 15:07:06 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,10 @@ void	final_check(t_big_box *big_box)
 	t_stack_a	*tmp;
 
 	if (big_box->stack_b_head)
+	{
+		ft_putstr("KO\n");
 		finished(big_box, 1);
+	}
 	tmp = big_box->stack_a_head;
 	while (tmp && tmp->next)
 	{
@@ -100,7 +103,7 @@ void	check_empty_args(char **argv)
 	{
 		if (argv[i][0] == '\0')
 		{
-			ft_putstr("Error\n");
+			write(2, "Error\n", 6);
 			exit(1);
 		}
 		i++;
