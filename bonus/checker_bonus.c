@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:43 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/04/27 15:08:31 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/05/01 12:55:23 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,8 @@ void	reading_operations(t_big_box *big_box)
 			finished(big_box, 1);
 		free(commands);
 	}
-	sorted_check(big_box);
+	if (ft_lstsize_a(big_box->stack_a_head) > 1)
+		sorted_check(big_box);
 	setup_opperations(big_box);
 }
 
@@ -100,9 +101,8 @@ int	main(int argc, char **argv)
 {
 	t_big_box	*b;
 
+	(void)argc;
 	b = NULL;
-	if (argc < 2)
-		return (0);
 	if ((arguments_checker(argv)) == 0)
 		return (write(2, "Error\n", 6), 1);
 	check_empty_args(argv);
@@ -111,9 +111,11 @@ int	main(int argc, char **argv)
 	if (dup_check(b))
 		return (write(2, "Error\n", 6), finished(b, 1), 1);
 	reading_operations(b);
+	if (ft_lstsize_a(b->stack_a_head) == 1)
+		return (finished(b, 0), 0);
 	if (!sorted_check(b))
 		return (ft_putstr("KO\n"), finished(b, 1), 1);
 	else
-		return (ft_putstr("OK\n"), finished(b, 1), 1);
+		return (ft_putstr("OK\n"), finished(b, 0), 1);
 	return (finished(b, 0), 0);
 }

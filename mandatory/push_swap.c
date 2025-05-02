@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:00:43 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/04/27 15:19:45 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/05/01 16:28:08 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int	get_range(t_stack_a **stack_a)
 
 	size = ft_lstsize_a(*stack_a);
 	if (size <= 100)
-		return (13);
+		return (size / 15);
 	else
-		return (37);
+		return (size / 7);
 }
 
 void	sort_two(t_big_box *box)
@@ -65,17 +65,18 @@ int	main(int argc, char **argv)
 {
 	t_big_box	*b;
 
+	(void)argc;
 	b = NULL;
 	if ((arguments_checker(argv)) == 0)
 		return (write(2, "Error\n", 6), 1);
 	check_empty_args(argv);
-	if (argc <= 2)
-		return (0);
 	b = box_struct(b);
 	set_stack_a(b, argv);
+	if (ft_lstsize_a(b->stack_a_head) == 1)
+		return (finished(b, 0), 0);
 	index_all(b->stack_a_head);
 	if (dup_check(b))
-		return (write(2, "Error\n", 6), finished(b, 1), 1);
+		return (write(2, "Error\n", 6), finished(b, 0), 1);
 	sorted_check(b);
 	ranking_index(b->stack_a_head);
 	ft_decide(b);

@@ -30,15 +30,15 @@ OBJ = $(SRC:.c=.o)
 BONUS_SRC = $(BONUS_DIR)parsing_tools_bonus.c \
 			$(BONUS_DIR)parsing_utils1_bonus.c \
 			$(BONUS_DIR)parsing_util2_bonus.c \
-			$(BONUS_DIR)push_swap_bonus.c \
+			$(BONUS_DIR)checker_bonus.c \
 			$(BONUS_DIR)ft_split_bonus.c \
 			$(BONUS_DIR)parsing_bonus.c \
 			$(BONUS_DIR)get_next_line_bonus.c \
 			$(BONUS_DIR)get_next_line_utils_bonus.c \
 			$(BONUS_DIR)apply_operations_bonus.c \
-			$(BONUS_DIR)moves1.c \
-			$(BONUS_DIR)moves2.c \
-			$(BONUS_DIR)moves3.c \
+			$(BONUS_DIR)moves1_bonus.c \
+			$(BONUS_DIR)moves2_bonus.c \
+			$(BONUS_DIR)moves3_bonus.c \
 			$(BONUS_DIR)parsing_util3_bonus.c
 
 BONUS_OBJ = $(BONUS_SRC:.c=.o)

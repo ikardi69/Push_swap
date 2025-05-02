@@ -6,29 +6,11 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 16:26:52 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/04/26 13:50:25 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/05/01 16:40:05 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	find_big_index(t_stack_b *stack_b)
-{
-	t_stack_b	*current;
-	t_stack_b	*bigges_node;
-
-	if (!stack_b)
-		return (-1);
-	current = stack_b;
-	bigges_node = current;
-	while (current)
-	{
-		if (current->index > bigges_node->index)
-			bigges_node = current;
-		current = current->next;
-	}
-	return (bigges_node->index);
-}
 
 int	find_max_position(t_stack_b *stack_b, int max)
 {
@@ -72,11 +54,39 @@ void	final_s(t_stack_a **stack_a, t_stack_b **stack_b)
 	}
 }
 
+int	is_two_part_reverse_sorted(t_stack_a *stack)
+{
+	t_stack_a	*current;
+	int			prev_val;
+	int			has_decreasing_break;
+
+	if (!stack || !stack->next)
+		return (0);
+	current = stack;
+	prev_val = current->content;
+	current = current->next;
+	has_decreasing_break = 0;
+	while (current)
+	{
+		if (prev_val <= current->content)
+		{
+			if (has_decreasing_break)
+				return (0);
+			has_decreasing_break = 1;
+		}
+		prev_val = current->content;
+		current = current->next;
+	}
+	return (has_decreasing_break);
+}
+
 void	ft_big(t_stack_a **stack_a, t_stack_b **stack_b, int range)
 {
-	int			i;
+	int	i;
+	int	flags;
 
 	i = 0;
+	flags = is_two_part_reverse_sorted(*stack_a);
 	while (*stack_a)
 	{
 		if ((*stack_a)->index <= i)
@@ -90,7 +100,7 @@ void	ft_big(t_stack_a **stack_a, t_stack_b **stack_b, int range)
 			rb(stack_b, 1);
 			i++;
 		}
-		else if (check_ops(*stack_a))
+		else if (flags && check_ops(*stack_a))
 			rra(stack_a, 1);
 		else
 			ra(stack_a, 1);

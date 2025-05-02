@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 14:46:51 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/04/27 15:07:06 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/05/02 18:19:52 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ int	sorted_check(t_big_box *box)
 	t_stack_a	*tmp_a;
 
 	tmp_a = box->stack_a_head;
+	if (!tmp_a)
+		return (0);
 	while (tmp_a && tmp_a->next)
 	{
 		if (tmp_a->content > tmp_a->next->content)

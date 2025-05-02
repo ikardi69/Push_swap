@@ -6,7 +6,7 @@
 /*   By: mteffahi <mteffahi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 14:32:23 by mteffahi          #+#    #+#             */
-/*   Updated: 2025/04/23 17:55:24 by mteffahi         ###   ########.fr       */
+/*   Updated: 2025/05/01 16:32:56 by mteffahi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,19 @@ static int	check(int c)
 		return (0);
 }
 
+static int	check_number(int c)
+{
+	if (c == ' ')
+		return (1);
+	else if (c == '-')
+		return (1);
+	else if (c == '+')
+		return (1);
+	else if (ft_isdigit(c) == 1)
+		return (1);
+	return (0);
+}
+
 int	arguments_checker(char **str)
 {
 	int	i;
@@ -37,6 +50,8 @@ int	arguments_checker(char **str)
 		i = -1;
 		while (str[x][++i])
 		{
+			if ((check_number(str[x][i])) == 0)
+				return (0);
 			if (str[x][i] == '-' && (str[x][i - 1] != ' ' && i != 0))
 				return (0);
 			else if (str[x][i + 1] == '\0')
@@ -60,18 +75,6 @@ int	ft_space_check(char *str)
 			return (1);
 	}
 	return (0);
-}
-
-void	ft_add_content(t_stack_a **head, int content)
-{
-	t_stack_a	*a;
-
-	a = (t_stack_a *)malloc(sizeof(t_stack_a));
-	if (!a)
-		return ;
-	a->content = content;
-	a->next = NULL;
-	ft_lstadd_back_a(head, a);
 }
 
 void	set_stack_a(t_big_box *box, char **str)
