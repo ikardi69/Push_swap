@@ -123,7 +123,8 @@ make fclean
 * Fully functioning `checker` program
 * Handles both standard and erroneous input streams
 * Written in compliance with the 42 Norm
-* <p align="center">
+  
+<p align="center">
   <h1>👤 Author</h1>
 </p>
 
