@@ -1,4 +1,4 @@
-<h1 align="center">push\_swap</h1>
+<h1 align="center">Push_swap</h1>
 
 <p align="center">
   <h1>📌 Overview</h1>
