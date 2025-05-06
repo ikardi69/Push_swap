@@ -1,5 +1,8 @@
 <h1 align="center">Push_swap</h1>
 
+![Language](https://img.shields.io/badge/language-C-blue)
+![Version](https://img.shields.io/badge/version-16.3-orange)
+
 <p align="center">
   <h1>📌 Overview</h1>
 </p>
